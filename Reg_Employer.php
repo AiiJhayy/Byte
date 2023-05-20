@@ -44,7 +44,7 @@
                         array_push($errors, "Invalid email!");
                     }
                     if (strlen($company_number) < 11) {
-                        array_push($errors, "Password must be 11 characters long");
+                        array_push($errors, "Company Number must be 11 characters long");
                     }
                     if (strlen($password) < 8) {
                         array_push($errors, "Password must be 8 characters long");
@@ -60,11 +60,11 @@
                     }
                     else {
                         require_once "Database.php";
-                        $sql = "INSERT INTO employer (first_name, last_name, employer_posistion, company_name, email, company_number, password) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                        $sql = "INSERT INTO employer (employer_first_name, employer_last_name, employer_posistion, company_name, company_email, company_number, password) VALUES (?, ?, ?, ?, ?, ?, ?)";
                         $stmt = mysqli_stmt_init($connect);
                         $preparestmt = mysqli_stmt_prepare($stmt, $sql);
                             if ($preparestmt) {
-                                mysqli_stmt_bind_param($stmt, "sssssss", $employer_first_name, $employer_last_name, $company_name, $company_email, $company_number, $passwordhash);
+                                mysqli_stmt_bind_param($stmt, "sssssss", $employer_first_name, $employer_last_name, $employer_posistion, $company_name, $company_email, $company_number, $passwordhash);
                                 mysqli_stmt_execute($stmt);
                                 echo "<div class= 'alert alert-success'>You are registered successfully!</div>";
                             }
@@ -75,7 +75,7 @@
                 }    
             ?>
 
-            <form action = "Registration.php" method = "post">
+            <form action = "Reg_Employer.php" method = "post">
                 <div class = "form-group">
                     <input type = "text" class = "form-control" name = "first_name" placeholder = "Employer First Name:">
                 </div>

@@ -29,7 +29,7 @@
                 $company_email = $_POST["email"];
                 $password = $_POST["password"];
                 require_once "Database.php";
-                $sql = "SELECT * FROM employer WHERE email = '$company_email'";
+                $sql = "SELECT * FROM employer WHERE company_email = '$company_email'";
                 $result = mysqli_query($connect, $sql);
                 $user = mysqli_fetch_array($result, MYSQLI_ASSOC);
                     if ($user) {

@@ -54,7 +54,7 @@
                     }
                     else {
                         require_once "Database.php";
-                        $sql = "INSERT INTO seeker (first_name, last_name, email, password) VALUES (?, ?, ?, ?)";
+                        $sql = "INSERT INTO seeker (seeker_first_name, seeker_last_name, email, password) VALUES (?, ?, ?, ?)";
                         $stmt = mysqli_stmt_init($connect);
                         $preparestmt = mysqli_stmt_prepare($stmt, $sql);
                             if ($preparestmt) {
@@ -69,7 +69,7 @@
                 }    
             ?>
 
-            <form action = "Registration.php" method = "post">
+            <form action = "Reg_Seeker.php" method = "post">
                 <div class = "form-group">
                     <input type = "text" class = "form-control" name = "first_name" placeholder = "First Name:">
                 </div>
